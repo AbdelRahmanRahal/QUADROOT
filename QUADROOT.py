@@ -25,3 +25,8 @@ else:
 	# If the discriminant is negative, the solutions are imaginary
 	sol = (-b / (2*a), -d / (4*a))
 	print('\nX = {} + sqrt({})i\nX = {} - sqrt({})i'.format(sol[0], sol[1], sol[0], sol[1]))
+
+	get_root = int(input("Calc root? 1 | 0\n> "))
+	if get_root:
+		from math import sqrt
+		print('sqrt({}) = {}'.format(sol[1], sqrt(sol[1])))
