@@ -3,7 +3,7 @@ print("Enter your terms in")
 print("quadratic form:")
 print("aX^2 + bX + c = 0\n")
 
-def decimal_point_amount(n: float) -> int:
+def decimal_point_amount(n):
     return len(str(n).rsplit('.')[-1])
 
 # Get inputs for coefficients a, b, and c
@@ -22,7 +22,16 @@ if d > 0:
     sol2 = (-b + d**0.5) / (2*a)
     if decimal_point_amount(sol1) > 5:
         print('\n-  -  -  -  -  -  -')
-        print(f'\nX = ( {-b} + {f"sqrt({d})" if decimal_point_amount(d**0.5) > 5 else {d**0.5}} ) / {2*a}\nX = ( {-b} - {f"sqrt({d})" if decimal_point_amount(d**0.5) > 5 else {d**0.5}} ) / {2*a}')
+        print(
+                '\nX = ( {} + {} ) / {}\nX = ( {} - {} ) / {}'
+                .format(
+                    -b,
+                    "sqrt({})".format(d) if decimal_point_amount(d**0.5) > 5 else {d**0.5},
+                    2*a,
+                    -b,
+                    "sqrt({})".format(d) if decimal_point_amount(d**0.5) > 5 else {d**0.5},
+                    2*a
+                    ))
         print('\nOR')
         
     print('\nX = {}\nX = {}'.format(sol1, sol2))
